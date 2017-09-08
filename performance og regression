@@ -1,0 +1,39 @@
+# The air dataset is already loaded into your workspace
+
+# Take a look at the structure of air
+str(air)
+
+# Inspect your colleague's code to build the model
+fit <- lm(dec ~ freq + angle + ch_length, data = air)
+
+# Use the model to predict for all values: pred
+pred <- predict(fit)
+
+# Use air$dec and pred to calculate the RMSE 
+rmse <- sqrt((1/nrow(air)) * sum( (air$dec - pred) ^ 2))
+
+# Print out rmse
+rmse 
+
+## comparison to a more complex model
+# The air dataset is already loaded into your workspace
+
+# Previous model
+fit <- lm(dec ~ freq + angle + ch_length, data = air)
+pred <- predict(fit)
+rmse <- sqrt(sum( (air$dec - pred) ^ 2) / nrow(air))
+rmse
+
+# Your colleague's more complex model
+fit2 <- lm(dec ~ freq + angle + ch_length + velocity + thickness, data = air)
+
+# Use the model to predict for all values: pred2
+pred2 <- predict(fit2)
+
+
+# Calculate rmse2
+rmse2 <- sqrt(sum( (air$dec - pred2) ^ 2) / nrow(air))
+
+
+# Print out rmse2
+rmse2
