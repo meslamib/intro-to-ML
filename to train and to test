@@ -1,0 +1,16 @@
+# The titanic dataset is already loaded into your workspace
+
+# Set random seed. Don't remove this line.
+set.seed(1)
+
+# Shuffle the dataset, call the result shuffled 
+n <- nrow(titanic)
+shuffled <- titanic[sample(n),]
+
+# Split the data in train and test
+train <- shuffled[1:round(0.7 * n),]
+test <- shuffled[(round(0.7 * n) + 1):n,]
+
+# Print the structure of train and test
+str(train)
+str(test)
